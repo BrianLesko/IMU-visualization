@@ -156,7 +156,7 @@ if (IMU.gyroscopeAvailable()) {
   yaw = yaw * 180.0 / PI;
 
   // Print the results
-  Serial.println(String("Roll Pitch Yaw: ") + roll + "," + pitch + "," + yaw);
+  Serial.println(String("Roll Pitch Yaw: ") + pitch + "," + roll + "," + yaw);
 
   unsigned long endTime = millis(); // End time of the loop
   dt = endTime - startTime;
