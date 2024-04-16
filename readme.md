@@ -1,6 +1,6 @@
 
 # Visualize the orientation of your IMU as a simple arrow
-IMU stands for inertial measurement unit. IMU's are used in all manners of moving equipment and vehicles to track the orientation of a vehicle or robot. This code was written to validate the accuracy of different IMU sensor fusion algorithms written in C++ Arduino. Intended for use with a mobile robot for learning purposes. The .ino files are for the Arduino ()[https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/] or the (Nicla Sense ME)[https://docs.arduino.cc/hardware/nicla-sense-me/] Arduino boards.
+IMU stands for inertial measurement unit. IMU's are used in all manners of moving equipment and vehicles to track the orientation of a vehicle or robot. This code was written to validate the accuracy of different IMU sensor fusion algorithms written in C++ Arduino. Intended for use with a mobile robot for learning purposes. The .ino files are for the Arduino [BLE Sense 2](https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/) or the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me/) Arduino boards.
 
 &nbsp;
 
@@ -10,11 +10,15 @@ IMU stands for inertial measurement unit. IMU's are used in all manners of movin
 
 ## Usage
 
-Run the following commands:
+Run the following commands in your terminal:
 ```
+python3 -m venv my_env
+source my_env/bin/activate # or on windows: source my_env\Scripts\activate
 pip install streamlit pyserial 
-streamlit run [REPLACE with github raw link to code]
+streamlit run https://raw.githubusercontent.com/BrianLesko/IMU-visualization/main/app.py
 ```
+
+to stop the app, go back to the terminal and press control C
 
 This will start the local Streamlit server, and you can access the chatbot by opening a web browser and navigating to `http://localhost:8501`.
 
