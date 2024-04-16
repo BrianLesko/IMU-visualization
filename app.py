@@ -1,6 +1,6 @@
 # Brian Lesko
 # 4/10/2024
-# IMU Visualizer
+# IMU Visualizer app written in pure python
 
 import streamlit as st
 import arduino as ard
@@ -21,7 +21,9 @@ gui.clean_format(wide=True)
 gui.about(text="Visualize your IMU data in 3D space.")
 st.markdown("## IMU Visualizer")
 
-#port = st.selectbox("Select a different port",ard.arduino.list_ports())
+with st.sidebar:
+    st.write("### Connection")
+    st.selectbox("Available Ports",ard.arduino.list_ports())
 
 # Initialize Arduino
 if "my_arduino" not in st.session_state:

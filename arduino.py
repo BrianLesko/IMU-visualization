@@ -1,5 +1,7 @@
 # Brian Lesko
+# This file contains supporting code for the main app
 # 11/22/23 
+
 # Open serial communication with an arduino from a python script using the library pyserial using this class.
 
 import serial # !pip install pyserial

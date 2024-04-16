@@ -1,6 +1,8 @@
 
 # Visualize the orientation of your IMU as a simple arrow
-IMU stands for inertial measurement unit. IMU's are used in all manners of moving equipment and vehicles to track the orientation of a vehicle or robot. This code was written to validate the accuracy of different IMU sensor fusion algorithms written in C++ Arduino. Intended for use with a mobile robot for learning purposes. The .ino files are for the Arduino [BLE Sense 2](https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/) or the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me/) Arduino boards.
+[IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) stands for inertial measurement unit. 
+
+IMU's are used in robotics and vehicles. Written in C++ Arduino and intended for use with a mobile robot. 
 
 &nbsp;
 
@@ -10,7 +12,12 @@ IMU stands for inertial measurement unit. IMU's are used in all manners of movin
 
 ## Usage
 
-Run the following commands in your terminal:
+The .ino files are for the Arduino [BLE Sense 2](https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/) 
+or the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me/) Arduino boards.
+
+Get either board, upload the .ino file using the arduino IDE, and make sure the serial monitor is closed.
+
+Then, run the following commands in your terminal:
 ```
 python3 -m venv my_env
 source my_env/bin/activate # or on windows: source my_env\Scripts\activate
