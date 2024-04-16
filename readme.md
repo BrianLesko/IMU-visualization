@@ -4,6 +4,8 @@
 
 IMU's are used in robotics and vehicles. Written in C++ Arduino and intended for use with a mobile robot. 
 
+Use this code to visualize the orientation of your IMU
+
 &nbsp;
 
 <div align="center"><img src="docs/preview.gif" width="800"></div>
@@ -15,7 +17,7 @@ IMU's are used in robotics and vehicles. Written in C++ Arduino and intended for
 The .ino files are for the Arduino [BLE Sense 2](https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/) 
 or the [Nicla Sense ME](https://docs.arduino.cc/hardware/nicla-sense-me/) Arduino boards.
 
-Get either board, upload the .ino file using the arduino IDE, and make sure the serial monitor is closed.
+Get either board, upload the .ino file using the arduino IDE, and make sure the serial monitor is closed. The Nicla sense board is much more accurate. 
 
 Then, run the following commands in your terminal:
 ```
