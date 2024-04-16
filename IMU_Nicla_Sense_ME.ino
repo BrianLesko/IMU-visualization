@@ -42,8 +42,8 @@ void loop() {
   BHY2.update();
   // Print the results
   Serial.println(String("Roll Pitch Yaw: ") + orientation.roll() + "," + orientation.pitch() + "," + orientation.heading());
-  Serial.println(String("pressure: ") + pressure.toString());
-  Serial.println(String("rotation: ") + rotation.toString());
+  //Serial.println(String("pressure: ") + pressure.toString());
+  //Serial.println(String("rotation: ") + rotation.toString()); //Quaternion
 
   unsigned long endTime = millis(); // End time of the loop
 }

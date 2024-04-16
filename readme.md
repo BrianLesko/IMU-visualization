@@ -1,6 +1,6 @@
 
-# Visualize the orientation of your IMU
-The IMU used here is the accelerometer and magnetometer in the arduino BLE Sense 2. IMU stands for inertial measurement unit. IMU's are used in all manners of moving equipment and vehicles to track the orientation of a vehicle or robot. This code was written to validate the accuracy of the IMU sensor fusion algorithm written in C++ Arduino code. Intended for use with a mobile robot for learning purposes.
+# Visualize the orientation of your IMU as a simple arrow
+IMU stands for inertial measurement unit. IMU's are used in all manners of moving equipment and vehicles to track the orientation of a vehicle or robot. This code was written to validate the accuracy of different IMU sensor fusion algorithms written in C++ Arduino. Intended for use with a mobile robot for learning purposes. The .ino files are for the Arduino ()[https://docs.arduino.cc/hardware/nano-33-ble-sense-rev2/] or the (Nicla Sense ME)[https://docs.arduino.cc/hardware/nicla-sense-me/] Arduino boards.
 
 &nbsp;
 

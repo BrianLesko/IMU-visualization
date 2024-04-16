@@ -9,7 +9,8 @@ import plotly.graph_objects as go
 import customize_gui
 
 # Constants
-PORT = '/dev/tty.usbmodem11301'
+PORT = '/dev/cu.usbmodemCC793F7E2'
+#'/dev/tty.usbmodem11301'
 BAUD = 9600
 DELAY = 0.1
 N = 10
@@ -19,6 +20,8 @@ gui = customize_gui.gui()
 gui.clean_format(wide=True)
 gui.about(text="Visualize your IMU data in 3D space.")
 st.markdown("## IMU Visualizer")
+
+#port = st.selectbox("Select a different port",ard.arduino.list_ports())
 
 # Initialize Arduino
 if "my_arduino" not in st.session_state:
@@ -75,11 +78,14 @@ while True:
         st.stop()
 
     # Process data
-    roll, pitch, yaw = map(float, new_data.split(':')[1].split(','))
-    roll, pitch, yaw = np.radians([roll, pitch, yaw])
-    rolls.append(roll)
-    pitches.append(pitch)
-    yaws.append(yaw)
+    try:
+        roll, pitch, yaw = map(float, new_data.split(':')[1].split(','))
+        roll, pitch, yaw = np.radians([roll, pitch, yaw])
+        rolls.append(roll)
+        pitches.append(pitch)
+        yaws.append(yaw)
+    except:
+        print("Invalid data")
 
     # Average last N values
     if len(rolls) > N:
