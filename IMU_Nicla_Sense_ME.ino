@@ -20,7 +20,7 @@ SensorOrientation orientation(SENSOR_ID_ORI);
 
 void setup() {
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial);
   Serial.println("Started");
 
@@ -32,18 +32,18 @@ void setup() {
   orientation.begin();
 
   //LED
-  nicla::begin();
-  nicla::leds.begin();
-  nicla::leds.setColor(green);
+  //nicla::begin();
+  //nicla::leds.begin();
+  //nicla::leds.setColor(green);
 
 }
 
 void loop() {
   BHY2.update();
-  // Print the results
-  Serial.println(String("Roll Pitch Yaw: ") + orientation.roll() + "," + orientation.pitch() + "," + orientation.heading());
-  //Serial.println(String("pressure: ") + pressure.toString());
+  // Standard sea level pressure in hPa
+  float P0 = 1013.25;
+  Serial.println(String("Roll, Pitch, Yaw, Altitude: ") + orientation.roll() + "," + orientation.pitch() + "," + orientation.heading() + "," + (44330 * (1 - pow((pressure.value() / P0), 1/5.255))) );
+  //Pressure in hPa hectopascals, conversion to altitude in meters
   //Serial.println(String("rotation: ") + rotation.toString()); //Quaternion
-
   unsigned long endTime = millis(); // End time of the loop
 }

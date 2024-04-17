@@ -35,7 +35,7 @@ with st.sidebar:
     "---"
 
 # Initialize Arduino
-BAUD = 9600
+BAUD = 115200
 N = 5 # Number of state values to average
 if "my_arduino" not in st.session_state:
     try:
@@ -67,7 +67,7 @@ fig.update_layout(
 )
 
 # Initialize data lists
-rolls, pitches, yaws = [], [], []
+rolls, pitches, yaws, altitudes = [], [], [], []
 roll = pitch = yaw = 0
 
 # Main loop
@@ -76,21 +76,34 @@ while True:
     # Receive data
     try:
         new_data = st.session_state.my_arduino.read()
-        with Data:
-            st.write(new_data)
+
     except Exception as e:
         print(e)
         break
 
     # Process data
     try:
-        roll, pitch, yaw = map(float, new_data.split(':')[1].split(','))
+        values = list(map(float, new_data.split(':')[1].split(',')))
+        if len(values) == 4:
+            roll, pitch, yaw, altitude = values
+            altitudes.append(altitude)
+            with Data: st.write(f"Roll: {roll:.2f}, Pitch: {pitch:.2f}, Yaw: {yaw:.2f}, Altitude: {altitude:.2f}")
+        elif len(values) == 3:
+            roll, pitch, yaw = values
+            with Data: st.write(f"Roll: {roll:.2f}, Pitch: {pitch:.2f}, Yaw: {yaw:.2f}")
+        else:
+            raise ValueError("Invalid number of values")
         roll, pitch, yaw = np.radians([roll, pitch, yaw])
         rolls.append(roll)
         pitches.append(pitch)
         yaws.append(yaw)
-    except:
+    except ValueError:
         print("Invalid data")
+        continue
+    except IndexError:
+        print("Data does not contain expected ':' character")
+        continue
+
     if len(rolls) > N:
         roll, pitch, yaw = map(np.mean, [rolls[-N:], pitches[-N:], yaws[-N:]])
     vector = np.array([0, 0, 1])  # Example vector
