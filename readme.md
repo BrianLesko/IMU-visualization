@@ -1,5 +1,8 @@
 
-# Visualize the orientation of your IMU as a simple arrow
+# Measure Orientation using an IMU
+
+IMU's are necessary for robotics applications and consumer devices. IMU's are used in conjunction with GPS modules to track both position and orientation in space. 
+
 [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) stands for inertial measurement unit. 
 
 IMU's are used in robotics and vehicles. Written in C++ Arduino and intended for use with a mobile robot. 
